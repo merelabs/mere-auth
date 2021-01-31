@@ -32,32 +32,10 @@ HEADERS += \
     src/user/user.h \
     src/user/userprofile.h
 
-DESTDIR = $$PWD/../lib
-
 INCLUDEPATH += /usr/local/include
 
 LIBS += -lpam
 LIBS += -lmere-utils
-
-defineTest(copy) {
-    source = $$1
-    target = $$2
-
-#    $$QMAKE_MKDIR $$quote($$target)
-
-    for(file, source) {
-        sdir = $${dirname(file)}
-        sdir = $$replace(sdir, "src", "")
-        path = $${target}$${sdir}
-
-        QMAKE_POST_LINK += $$QMAKE_MKDIR $$quote($$path) $$escape_expand(\\n\\t)
-        QMAKE_POST_LINK += $$QMAKE_COPY $$quote($$file) $$quote($$path) $$escape_expand(\\n\\t)
-    }
-
-    export(QMAKE_POST_LINK)
-}
-
-copy($$HEADERS, $$PWD/../include/mere/auth)
 
 #
 # Install

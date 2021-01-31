@@ -1,6 +1,8 @@
 #include "user.h"
 #include "userprofile.h"
 
+#include "mere/utils/stringutils.h"
+
 Mere::Auth::User::User()
     : m_groups(10)
 {
@@ -27,12 +29,12 @@ void Mere::Auth::User::setGid(unsigned int gid)
     m_gid = gid;
 }
 
-QString Mere::Auth::User::name() const
+std::string Mere::Auth::User::name() const
 {
     return m_name;
 }
 
-void Mere::Auth::User::setName(QString name)
+void Mere::Auth::User::setName(const std::string &name)
 {
     m_name = name;
 }
@@ -55,7 +57,7 @@ void Mere::Auth::User::setGroups(std::vector<unsigned int> groups)
         m_groups.push_back(group);
 }
 
-QString Mere::Auth::User::klass() const
+std::string Mere::Auth::User::klass() const
 {
     return m_klass;
 }
@@ -98,12 +100,12 @@ bool Mere::Auth::User::isUser() const
         return false;
 
     // No Login Shell
-    const QString shell = this->profile().shell();
-    if (shell.endsWith("nologin"))
+    const std::string shell = this->profile().shell();
+    if (Mere::Utils::StringUtils::isEndsWidth(shell, "nologin"))
         return false;
 
     // No Home
-    const QString home = this->profile().home();
+    const std::string home = this->profile().home();
     if (home.compare("/nonexistent") == 0)
         return false;
 

@@ -12,17 +12,17 @@ class MERE_AUTH_LIBSPEC Account
 {
 public:
     Account();
-    Account(const QString &username, const QString &password);
+    Account(const std::string &username, const std::string &password);
 
-    QString username() const;
-    void setUsername(const QString &username);
+    std::string username() const;
+    void setUsername(const std::string &username);
 
-    QString password() const;
-    void setPassword(const QString &password);
+    std::string password() const;
+    void setPassword(const std::string &password);
 
 private:
-    QString m_username;
-    QString m_password;
+    std::string m_username;
+    std::string m_password;
 };
 
 }

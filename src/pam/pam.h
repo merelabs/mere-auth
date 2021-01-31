@@ -10,8 +10,6 @@
 #include <sys/types.h>
 #include <security/pam_appl.h>
 
-#include <QDebug>
-
 namespace Mere
 {
 namespace Auth
@@ -21,7 +19,7 @@ class MERE_AUTH_LIBSPEC PAM
 {
 public:
     ~PAM();
-    explicit PAM(const QString &service, int flags = (PAM_SILENT | PAM_DISALLOW_NULL_AUTHTOK));
+    explicit PAM(const std::string &service, int flags = (PAM_SILENT | PAM_DISALLOW_NULL_AUTHTOK));
 
     int login(const Applicant &applicant);
     int logout();
@@ -32,7 +30,7 @@ private:
 
 private:
     int m_flags;
-    const QString &m_service;
+    const std::string &m_service;
 
     pam_handle_t *handler;
 };

@@ -5,29 +5,29 @@ Mere::Auth::Account::Account()
 
 }
 
-Mere::Auth::Account::Account(const QString &username, const QString &password)
+Mere::Auth::Account::Account(const std::string &username, const std::string &password)
     : m_username(username),
       m_password(password)
 {
 
 }
 
-QString Mere::Auth::Account::username() const
+std::string Mere::Auth::Account::username() const
 {
     return m_username;
 }
 
-void Mere::Auth::Account::setUsername(const QString &username)
+void Mere::Auth::Account::setUsername(const std::string &username)
 {
     m_username = username;
 }
 
-QString Mere::Auth::Account::password() const
+std::string Mere::Auth::Account::password() const
 {
     return m_password;
 }
 
-void Mere::Auth::Account::setPassword(const QString &password)
+void Mere::Auth::Account::setPassword(const std::string &password)
 {
     m_password = password;
 }

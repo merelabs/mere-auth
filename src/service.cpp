@@ -4,6 +4,8 @@
 
 #include "mere/utils/stringutils.h"
 
+#include <iostream>
+
 Mere::Auth::Service::~Service()
 {
     if (m_pam != nullptr)
@@ -13,18 +15,18 @@ Mere::Auth::Service::~Service()
     }
 }
 
-Mere::Auth::Service::Service(const QString &service, QObject *parent)
+Mere::Auth::Service::Service(const std::string &service, QObject *parent)
     : QObject(parent),
       m_service(service),
       m_pam(new PAM(m_service))
 {
 }
 
-bool Mere::Auth::Service::login(const QString &username, const QString &password)
+bool Mere::Auth::Service::login(const std::string &username, const std::string &password)
 {
     if ( Mere::Utils::StringUtils::isBlank(username) || Mere::Utils::StringUtils::isBlank(password))
     {
-        qDebug() << "Username and/or passord can not be empty!";
+        std::cout << "Username and/or passord can not be empty!" << std::endl;
         return false;
     }
 
@@ -70,18 +72,19 @@ Mere::Auth::User Mere::Auth::Service::user(const char *username) const
     return this->user(pw);
 }
 
-std::vector<Mere::Auth::User> Mere::Auth::Service::users(User::Type type) const
+std::vector<Mere::Auth::User> Mere::Auth::Service::users(int type) const
 {
     std::vector<Mere::Auth::User> users;
 
     struct passwd *pw;
+
+    setpwent();
     while ((pw = getpwent()) != nullptr)
     {
         Mere::Auth::User user = this->user(pw);
         if (user.type() & type)
             users.push_back(user);
     }
-
     endpwent();
 
     return users;

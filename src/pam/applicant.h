@@ -14,10 +14,10 @@ class Account;
 class MERE_AUTH_LIBSPEC Applicant
 {
 public:
-    explicit Applicant(const QString &username, const QString &password);
+    explicit Applicant(const std::string &username, const std::string &password);
 
-    const QString username() const;
-    const QString password() const;
+    const std::string username() const;
+    const std::string password() const;
     const Account account() const;
 
 private:

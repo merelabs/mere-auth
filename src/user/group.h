@@ -18,17 +18,17 @@ public:
     uint32_t gid() const;
     void setGid(uint32_t gid);
 
-    QString name() const;
-    void setName(QString name);
+    std::string name() const;
+    void setName(const std::string &name);
 
-    std::vector<QString> members() const;
-    void addMember(QString member);
-    void setMembers(std::vector<QString> members);
+    std::vector<std::string> members() const;
+    void addMember(const std::string &member);
+    void setMembers(std::vector<std::string> members);
 
 private:
     uint32_t       m_gid;
-    QString        m_name;
-    std::vector<QString> m_members;
+    std::string    m_name;
+    std::vector<std::string> m_members;
 };
 
 }

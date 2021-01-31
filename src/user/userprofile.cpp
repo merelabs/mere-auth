@@ -16,32 +16,32 @@ Mere::Auth::UserProfile::UserProfile(int uid)
 
 }
 
-QString Mere::Auth::UserProfile::name() const
+std::string Mere::Auth::UserProfile::name() const
 {
     return m_name;
 }
 
-void Mere::Auth::UserProfile::setName(const QString name)
+void Mere::Auth::UserProfile::setName(const std::string &name)
 {
     m_name = name;
 }
 
-QString Mere::Auth::UserProfile::home() const
+std::string Mere::Auth::UserProfile::home() const
 {
     return m_home;
 }
 
-void Mere::Auth::UserProfile::setHome(QString home)
+void Mere::Auth::UserProfile::setHome(const std::string &home)
 {
     m_home = home;
 }
 
-QString Mere::Auth::UserProfile::shell() const
+std::string Mere::Auth::UserProfile::shell() const
 {
     return m_shell;
 }
 
-void Mere::Auth::UserProfile::setShell(QString shell)
+void Mere::Auth::UserProfile::setShell(const std::string &shell)
 {
     m_shell = shell;
 }
@@ -63,12 +63,12 @@ void Mere::Auth::UserProfile::setGroups(const std::vector<Group> groups)
         m_groups.push_back(group);
 }
 
-QString Mere::Auth::UserProfile::icon() const
+std::string Mere::Auth::UserProfile::icon() const
 {
     return m_icon;
 }
 
-QString Mere::Auth::UserProfile::mail() const
+std::string Mere::Auth::UserProfile::mail() const
 {
     return m_mail;
 }

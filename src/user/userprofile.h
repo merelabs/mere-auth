@@ -16,32 +16,32 @@ public:
     UserProfile();
     explicit UserProfile(int uid);
 
-    QString name() const;
-    void setName(const QString name);
+    std::string name() const;
+    void setName(const std::string &name);
 
-    QString home() const;
-    void setHome(QString home);
+    std::string home() const;
+    void setHome(const std::string &home);
 
-    QString shell() const;
-    void setShell(QString shell);
+    std::string shell() const;
+    void setShell(const std::string &shell);
 
     std::vector<Group> groups() const;
     void addGroup(const Group group);
     void setGroups(const std::vector<Group> groups);
 
-    QString icon() const;
-    QString mail() const;
+    std::string icon() const;
+    std::string mail() const;
 
 private:
     unsigned int m_uid;
-    QString m_name;
-    QString m_home;
-    QString m_shell;
+    std::string m_name;
+    std::string m_home;
+    std::string m_shell;
 
     std::vector<Group> m_groups;
 
-    QString m_icon;
-    QString m_mail;
+    std::string m_icon;
+    std::string m_mail;
 };
 
 }

@@ -22,14 +22,14 @@ public:
     unsigned int gid() const;
     void setGid(unsigned int gid);
 
-    QString name() const;
-    void setName(QString name);
+    std::string name() const;
+    void setName(const std::string &name);
 
     std::vector<unsigned int > groups() const;
     void addGroup(unsigned int group);
     void setGroups(std::vector<unsigned int > groups);
 
-    QString klass() const;
+    std::string klass() const;
 
     UserProfile profile() const;
     void setProfile(UserProfile profile);
@@ -52,11 +52,11 @@ private:
 private:
     unsigned int m_uid;
     unsigned int m_gid;
-    QString m_name;
+    std::string m_name;
 
     std::vector<unsigned int> m_groups;
 
-    QString m_klass;
+    std::string m_klass;
 
     UserProfile m_profile;
 };
