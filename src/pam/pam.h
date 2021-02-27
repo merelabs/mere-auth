@@ -1,5 +1,5 @@
-#ifndef MEREPAM_H
-#define MEREPAM_H
+#ifndef MERE_AUTH_PAM_H
+#define MERE_AUTH_PAM_H
 
 #include "../global.h"
 #include "applicant.h"
@@ -15,7 +15,7 @@ namespace Mere
 namespace Auth
 {
 
-class MERE_AUTH_LIBSPEC PAM
+class MERE_AUTH_LIB_SPEC PAM
 {
 public:
     ~PAM();
@@ -38,4 +38,4 @@ private:
 }
 }
 
-#endif // MEREPAM_H
+#endif // MERE_AUTH_PAM_H

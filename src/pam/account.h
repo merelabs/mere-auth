@@ -1,5 +1,5 @@
-#ifndef MEREACCOUNT_H
-#define MEREACCOUNT_H
+#ifndef MERE_AUTH_ACCOUNT_H
+#define MERE_AUTH_ACCOUNT_H
 
 #include "../global.h"
 
@@ -8,7 +8,7 @@ namespace Mere
 namespace Auth
 {
 
-class MERE_AUTH_LIBSPEC Account
+class MERE_AUTH_LIB_SPEC Account
 {
 public:
     Account();
@@ -28,4 +28,4 @@ private:
 }
 }
 
-#endif // MEREACCOUNT_H
+#endif // MERE_AUTH_ACCOUNT_H

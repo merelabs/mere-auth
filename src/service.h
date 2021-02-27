@@ -1,5 +1,5 @@
-#ifndef MEREAUTH_H
-#define MEREAUTH_H
+#ifndef MERE_AUTH_SERVICE_H
+#define MERE_AUTH_SERVICE_H
 
 #include "global.h"
 #include "pam/account.h"
@@ -17,7 +17,7 @@ namespace Auth
 
 class PAM;
 
-class MERE_AUTH_LIBSPEC Service : public QObject
+class MERE_AUTH_LIB_SPEC Service : public QObject
 {
     Q_OBJECT
 public:
@@ -51,4 +51,4 @@ private:
 }
 }
 
-#endif // MEREAUTH_H
+#endif // MERE_AUTH_SERVICE_H

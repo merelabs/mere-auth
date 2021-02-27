@@ -1,5 +1,5 @@
-#ifndef MEREUSERPROFILE_H
-#define MEREUSERPROFILE_H
+#ifndef MERE_AUTH_USERPROFILE_H
+#define MERE_AUTH_USERPROFILE_H
 
 #include "../global.h"
 #include "group.h"
@@ -9,7 +9,7 @@ namespace Mere
 namespace Auth
 {
 
-class MERE_AUTH_LIBSPEC UserProfile
+class MERE_AUTH_LIB_SPEC UserProfile
 {
 public:
     ~UserProfile();
@@ -49,4 +49,4 @@ private:
 
 //Q_DECLARE_METATYPE(UserProfile);
 
-#endif // MEREUSERPROFILE_H
+#endif // MERE_AUTH_USERPROFILE_H

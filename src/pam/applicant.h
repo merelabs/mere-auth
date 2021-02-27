@@ -11,7 +11,7 @@ namespace Auth
 
 class Account;
 
-class MERE_AUTH_LIBSPEC Applicant
+class MERE_AUTH_LIB_SPEC Applicant
 {
 public:
     explicit Applicant(const std::string &username, const std::string &password);
