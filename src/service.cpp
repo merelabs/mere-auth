@@ -22,7 +22,7 @@ Mere::Auth::Service::Service(const std::string &service, QObject *parent)
 {
 }
 
-bool Mere::Auth::Service::login(const std::string &username, const std::string &password)
+bool Mere::Auth::Service::login(const std::string &username, const std::string &password) const
 {
     if ( Mere::Utils::StringUtils::isBlank(username) || Mere::Utils::StringUtils::isBlank(password))
     {
@@ -39,7 +39,7 @@ bool Mere::Auth::Service::login(const std::string &username, const std::string &
     return result == 0;
 }
 
-bool Mere::Auth::Service::logout()
+bool Mere::Auth::Service::logout() const
 {
     return false;
 }
@@ -149,4 +149,9 @@ Mere::Auth::User Mere::Auth::Service::user(struct passwd *pwd) const
     user.setProfile(profile);
 
     return user;
+}
+
+bool Mere::Auth::Service::verify(const std::string &password) const
+{
+    return this->login(getlogin(), password);
 }

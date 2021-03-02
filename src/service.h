@@ -23,8 +23,8 @@ class MERE_AUTH_LIB_SPEC Service : public QObject
 public:
     ~Service();
     explicit Service(const std::string &service = "mere", QObject *parent = nullptr);
-    bool login(const std::string &username, const std::string &password);
-    bool logout();
+    bool login(const std::string &username, const std::string &password) const;
+    bool logout() const;
 
     User user(const QString &username) const;
     User user(const std::string &username) const;
@@ -35,11 +35,13 @@ public:
     Group group(const unsigned int &gid) const;
     std::vector<Group> groups(const char *username, const unsigned int &gid) const;
 
+    bool verify(const std::string &password) const;
+
 private:
     User user(struct passwd *pwd) const;
 
 signals:
-    void authenticated(User user);
+    void authenticated(User user) const;
 
 public slots:
 
