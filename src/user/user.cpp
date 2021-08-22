@@ -3,6 +3,11 @@
 
 #include "mere/utils/stringutils.h"
 
+Mere::Auth::User::~User()
+{
+
+}
+
 Mere::Auth::User::User()
     : m_groups(10)
 {

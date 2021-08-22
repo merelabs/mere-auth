@@ -20,10 +20,16 @@ int Mere::Auth::PAM::login(const Applicant &applicant)
 
     // why target user = NULL?
     const char *service = m_service.c_str();
-    int result = pam_start(service, NULL, &converse, &handler);
+    int result = pam_start(service, applicant.username().c_str(), &converse, &handler);
     if( result != PAM_SUCCESS)
     {
-        std::cerr << pam_strerror(handler, result) << std::endl;
+        std::cout << pam_strerror(handler, result) << std::endl;
+        return result;
+    }
+
+    if ((result = pam_set_item(handler, PAM_TTY, getenv("DISPLAY"))) != PAM_SUCCESS)
+    {
+        std::cout << "PAM: %s" << pam_strerror(handler, result) << std::endl;
         return result;
     }
 
@@ -37,15 +43,15 @@ int Mere::Auth::PAM::login(const Applicant &applicant)
     result = pam_set_item(handler, PAM_RUSER, username);
     if( result != PAM_SUCCESS)
     {
-        std::cerr << pam_strerror(handler, result) << std::endl;
+        std::cout << pam_strerror(handler, result) << std::endl;
         pam_end(handler, result);
         return result;
     }
 
-//    result = pam_set_item(pamh, PAM_AUTHTOK, pass);
+//    result = pam_set_item(handler, PAM_AUTHTOK, applicant.password().c_str());
 //    if (result != PAM_SUCCESS)
 //    {
-//        pam_end(pamh, result);
+//        pam_end(handler, result);
 //        return result;
 //    }
 
@@ -55,7 +61,7 @@ int Mere::Auth::PAM::login(const Applicant &applicant)
     result = pam_set_item(handler, PAM_RHOST, hostname);
     if( result != PAM_SUCCESS)
     {
-        std::cerr << pam_strerror(handler, result) << std::endl;
+        std::cout << pam_strerror(handler, result) << std::endl;
         pam_end(handler, result);
         return result;
     }
@@ -64,7 +70,7 @@ int Mere::Auth::PAM::login(const Applicant &applicant)
     result = pam_authenticate(handler, m_flags);
     if (result != PAM_SUCCESS)
     {
-        std::cerr << pam_strerror(handler, result) << std::endl;
+        std::cout << pam_strerror(handler, result) << std::endl;
         pam_end(handler, result);
         return result;
     }
@@ -72,7 +78,7 @@ int Mere::Auth::PAM::login(const Applicant &applicant)
     result = pam_acct_mgmt(handler, 0);
     if (result != PAM_SUCCESS)
     {
-        std::cerr << pam_strerror(handler, result) << std::endl;
+        std::cout << pam_strerror(handler, result) << std::endl;
         pam_end(handler, result);
         return result;
     }
@@ -80,7 +86,7 @@ int Mere::Auth::PAM::login(const Applicant &applicant)
     result = pam_setcred(handler, PAM_ESTABLISH_CRED);
     if (result != PAM_SUCCESS)
     {
-        std::cerr << pam_strerror(handler, result) << std::endl;
+        std::cout << pam_strerror(handler, result) << std::endl;
         pam_end(handler, result);
         return result;
     }
@@ -88,7 +94,7 @@ int Mere::Auth::PAM::login(const Applicant &applicant)
     result = pam_open_session(handler, PAM_SILENT);
     if (result != PAM_SUCCESS)
     {
-        std::cerr << pam_strerror(handler, result) << std::endl;
+        std::cout << pam_strerror(handler, result) << std::endl;
 
         pam_setcred(handler, PAM_DELETE_CRED);
         pam_end(handler, result);
@@ -100,7 +106,7 @@ int Mere::Auth::PAM::login(const Applicant &applicant)
     result = pam_get_item(handler, PAM_USER, (const void **)&username);
     if (result != PAM_SUCCESS || (pwd = getpwnam(username)) == nullptr)
     {
-        std::cerr << pam_strerror(handler, result) << std::endl;
+        std::cout << pam_strerror(handler, result) << std::endl;
 
         pam_end(handler, result);
         return result;
