@@ -1,5 +1,5 @@
-#ifndef MEREUSER_H
-#define MEREUSER_H
+#ifndef MERE_AUTH_USER_H
+#define MERE_AUTH_USER_H
 
 #include "../global.h"
 #include "userprofile.h"
@@ -11,10 +11,14 @@ namespace Mere
 namespace Auth
 {
 
-class MERE_AUTH_LIBSPEC User
+class MERE_AUTH_LIB_SPEC User
 {
 public:
+    ~User();
     explicit User();
+
+    User(const User &) = default;
+    User& operator=(const User &) = default;
 
     unsigned int uid() const;
     void setUid(unsigned int uid);
@@ -64,5 +68,6 @@ private:
 }
 }
 
-//Q_DECLARE_METATYPE(MereUser);
-#endif // MEREUSER_H
+Q_DECLARE_METATYPE(Mere::Auth::User);
+
+#endif // MERE_AUTH_USER_H

@@ -1,5 +1,5 @@
-#ifndef MEREGROUP_H
-#define MEREGROUP_H
+#ifndef MERE_AUTH_GROUP_H
+#define MERE_AUTH_GROUP_H
 
 #include "../global.h"
 
@@ -10,7 +10,7 @@ namespace Mere
 namespace Auth
 {
 
-class MERE_AUTH_LIBSPEC Group
+class MERE_AUTH_LIB_SPEC Group
 {
 public:
     Group();
@@ -34,4 +34,4 @@ private:
 }
 }
 //Q_DECLARE_METATYPE(MereGroup);
-#endif // MEREGROUP_H
+#endif // MERE_AUTH_GROUP_H
