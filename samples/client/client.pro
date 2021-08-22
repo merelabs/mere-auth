@@ -22,7 +22,7 @@ HEADERS += \
 
 INCLUDEPATH += /usr/local/include
 
-LIBS += -lmere-utils
+LIBS += -lmere-auth -lmere-utils
 
 #
 # Install

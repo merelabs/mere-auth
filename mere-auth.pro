@@ -55,7 +55,7 @@ unix {
         eval(INSTALLS *= headers_$${path})
     }
 
-    config.files= $$PWD/../etc/mere
     config.path = /usr/local/etc/pam.d/
+    config.files= etc/mere
     INSTALLS += config
 }
