@@ -1,5 +1,5 @@
-#ifndef MERE_AUTH_APPLICANT_H
-#define MERE_AUTH_APPLICANT_H
+#ifndef MERE_AUTH_PAM_APPLICANT_H
+#define MERE_AUTH_PAM_APPLICANT_H
 
 #include "../global.h"
 #include "account.h"
@@ -14,6 +14,7 @@ class Account;
 class MERE_AUTH_LIB_SPEC Applicant
 {
 public:
+    virtual ~Applicant();
     explicit Applicant(const std::string &username, const std::string &password);
 
     const std::string username() const;
@@ -27,4 +28,4 @@ private:
 }
 }
 
-#endif // MERE_AUTH_APPLICANT_H
+#endif // MERE_AUTH_PAM_APPLICANT_H

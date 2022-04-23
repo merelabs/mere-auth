@@ -18,8 +18,8 @@ SOURCES += \
     src/pam/pam.cpp \
     src/service.cpp \
     src/user/group.cpp \
-    src/user/user.cpp \
-    src/user/userprofile.cpp
+    src/user/profile.cpp \
+    src/user/user.cpp
 
 HEADERS += \
     src/pam/account.h \
@@ -28,9 +28,9 @@ HEADERS += \
     src/pam/pam.h \
     src/service.h \
     src/user/group.h \
+    src/user/profile.h \
     src/user/type.h \
-    src/user/user.h \
-    src/user/userprofile.h
+    src/user/user.h
 
 INCLUDEPATH += /usr/local/include
 

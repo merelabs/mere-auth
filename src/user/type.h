@@ -1,5 +1,5 @@
-#ifndef MERE_AUTH_TYPE_H
-#define MERE_AUTH_TYPE_H
+#ifndef MERE_AUTH_USER_TYPE_H
+#define MERE_AUTH_USER_TYPE_H
 
 #include<type_traits>
 
@@ -20,4 +20,4 @@ enum class AccountType
 }
 }
 
-#endif // MERE_AUTH_TYPE_H
+#endif // MERE_AUTH_USER_TYPE_H

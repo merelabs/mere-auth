@@ -2,7 +2,10 @@
 #define MERE_AUTH_GLOBAL_H
 
 #include <QtCore/QtGlobal>
-#include <QDebug>
+#include <QtCore/qsharedpointer.h>
+
+#include <iostream>
+#include <string>
 
 #if defined MERE_AUTH_LIB
 #define MERE_AUTH_LIB_SPEC Q_DECL_EXPORT
