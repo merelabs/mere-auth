@@ -2,7 +2,6 @@
 #define MERE_AUTH_GLOBAL_H
 
 #include <QtCore/QtGlobal>
-#include <QtCore/qsharedpointer.h>
 
 #include <iostream>
 #include <string>

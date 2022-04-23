@@ -6,8 +6,6 @@
 #include "group.h"
 #include "type.h"
 
-#include <vector>
-
 namespace Mere
 {
 namespace Auth
@@ -69,7 +67,5 @@ private:
 
 }
 }
-
-Q_DECLARE_METATYPE(Mere::Auth::User);
 
 #endif // MERE_AUTH_USER_H

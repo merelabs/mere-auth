@@ -8,8 +8,6 @@
 #include <pwd.h>
 #include <grp.h>
 
-#include <QObject>
-
 namespace Mere
 {
 namespace Auth
@@ -17,12 +15,11 @@ namespace Auth
 
 class PAM;
 
-class MERE_AUTH_LIB_SPEC Service : public QObject
+class MERE_AUTH_LIB_SPEC Service
 {
-    Q_OBJECT
 public:
     virtual ~Service();
-    explicit Service(const std::string &service = "mere", QObject *parent = nullptr);
+    explicit Service(const std::string &service = "mere");
     bool login(const std::string &username, const std::string &password) const;
     bool logout() const;
 
@@ -40,15 +37,9 @@ public:
 private:
     User user(struct passwd *pwd) const;
 
-signals:
-    void authenticated(User user) const;
-
-public slots:
-
 private:
     std::string m_service;
     PAM *m_pam;
-
 };
 }
 }
