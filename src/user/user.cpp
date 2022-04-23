@@ -1,5 +1,5 @@
 #include "user.h"
-#include "userprofile.h"
+#include "profile.h"
 
 #include "mere/utils/stringutils.h"
 
@@ -76,12 +76,12 @@ Mere::Auth::User::Type Mere::Auth::User::type() const
     return Type::UnknowUser;
 }
 
-Mere::Auth::UserProfile Mere::Auth::User::profile() const
+Mere::Auth::Profile Mere::Auth::User::profile() const
 {
     return m_profile;
 }
 
-void Mere::Auth::User::setProfile(Mere::Auth::UserProfile profile)
+void Mere::Auth::User::setProfile(Mere::Auth::Profile profile)
 {
     m_profile = profile;
 }
