@@ -18,7 +18,7 @@ namespace Auth
 class MERE_AUTH_LIB_SPEC PAM
 {
 public:
-    ~PAM();
+    virtual ~PAM();
     explicit PAM(const std::string &service, int flags = (PAM_SILENT | PAM_DISALLOW_NULL_AUTHTOK));
 
     int login(const Applicant &applicant);

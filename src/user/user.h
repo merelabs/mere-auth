@@ -14,7 +14,7 @@ namespace Auth
 class MERE_AUTH_LIB_SPEC User
 {
 public:
-    ~User();
+    virtual ~User();
     explicit User();
 
     User(const User &) = default;

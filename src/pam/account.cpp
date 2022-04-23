@@ -1,5 +1,10 @@
 #include "account.h"
 
+Mere::Auth::Account::~Account()
+{
+
+}
+
 Mere::Auth::Account::Account()
 {
 

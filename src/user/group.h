@@ -1,5 +1,5 @@
-#ifndef MERE_AUTH_GROUP_H
-#define MERE_AUTH_GROUP_H
+#ifndef MERE_AUTH_USER_GROUP_H
+#define MERE_AUTH_USER_GROUP_H
 
 #include "../global.h"
 
@@ -13,6 +13,7 @@ namespace Auth
 class MERE_AUTH_LIB_SPEC Group
 {
 public:
+    virtual ~Group();
     Group();
 
     uint32_t gid() const;
@@ -33,5 +34,5 @@ private:
 
 }
 }
-//Q_DECLARE_METATYPE(MereGroup);
-#endif // MERE_AUTH_GROUP_H
+
+#endif // MERE_AUTH_USER_GROUP_H

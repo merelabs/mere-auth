@@ -1,5 +1,5 @@
-#ifndef MERE_AUTH_USERPROFILE_H
-#define MERE_AUTH_USERPROFILE_H
+#ifndef MERE_AUTH_USER_ROFILE_H
+#define MERE_AUTH_USER_PROFILE_H
 
 #include "../global.h"
 #include "group.h"
@@ -12,7 +12,7 @@ namespace Auth
 class MERE_AUTH_LIB_SPEC Profile
 {
 public:
-    ~Profile();
+    virtual ~Profile();
     Profile();
     explicit Profile(int uid);
 
@@ -47,6 +47,4 @@ private:
 }
 }
 
-//Q_DECLARE_METATYPE(UserProfile);
-
-#endif // MERE_AUTH_USERPROFILE_H
+#endif // MERE_AUTH_USER_PROFILE_H
