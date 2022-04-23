@@ -138,7 +138,7 @@ Mere::Auth::User Mere::Auth::Service::user(struct passwd *pwd) const
     user.setGid(pwd->pw_gid);
     user.setName(pwd->pw_name);
 
-    Mere::Auth::UserProfile profile;
+    Mere::Auth::Profile profile;
     profile.setName(pwd->pw_gecos);
     profile.setHome(pwd->pw_dir);
     profile.setShell(pwd->pw_shell);

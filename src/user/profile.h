@@ -9,12 +9,12 @@ namespace Mere
 namespace Auth
 {
 
-class MERE_AUTH_LIB_SPEC UserProfile
+class MERE_AUTH_LIB_SPEC Profile
 {
 public:
-    ~UserProfile();
-    UserProfile();
-    explicit UserProfile(int uid);
+    ~Profile();
+    Profile();
+    explicit Profile(int uid);
 
     std::string name() const;
     void setName(const std::string &name);
