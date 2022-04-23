@@ -5,7 +5,6 @@
 
 #include <vector>
 
-
 namespace Mere
 {
 namespace Auth
