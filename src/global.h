@@ -2,7 +2,9 @@
 #define MERE_AUTH_GLOBAL_H
 
 #include <QtCore/QtGlobal>
-#include <QDebug>
+
+#include <iostream>
+#include <string>
 
 #if defined MERE_AUTH_LIB
 #define MERE_AUTH_LIB_SPEC Q_DECL_EXPORT

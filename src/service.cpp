@@ -4,8 +4,6 @@
 
 #include "mere/utils/stringutils.h"
 
-#include <iostream>
-
 Mere::Auth::Service::~Service()
 {
     if (m_pam != nullptr)
@@ -15,9 +13,8 @@ Mere::Auth::Service::~Service()
     }
 }
 
-Mere::Auth::Service::Service(const std::string &service, QObject *parent)
-    : QObject(parent),
-      m_service(service),
+Mere::Auth::Service::Service(const std::string &service)
+    : m_service(service),
       m_pam(new PAM(m_service))
 {
 }
@@ -30,13 +27,7 @@ bool Mere::Auth::Service::login(const std::string &username, const std::string &
         return false;
     }
 
-    Applicant applicant(username, password);
-
-    int result = m_pam->login(applicant);
-    if (result == 0)
-        emit authenticated(user(username));
-
-    return result == 0;
+    return m_pam->login(Applicant(username, password)) == 0;
 }
 
 bool Mere::Auth::Service::logout() const
@@ -138,7 +129,7 @@ Mere::Auth::User Mere::Auth::Service::user(struct passwd *pwd) const
     user.setGid(pwd->pw_gid);
     user.setName(pwd->pw_name);
 
-    Mere::Auth::UserProfile profile;
+    Mere::Auth::Profile profile;
     profile.setName(pwd->pw_gecos);
     profile.setHome(pwd->pw_dir);
     profile.setShell(pwd->pw_shell);

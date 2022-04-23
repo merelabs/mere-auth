@@ -1,5 +1,5 @@
-#ifndef MERE_AUTH_USERPROFILE_H
-#define MERE_AUTH_USERPROFILE_H
+#ifndef MERE_AUTH_USER_ROFILE_H
+#define MERE_AUTH_USER_PROFILE_H
 
 #include "../global.h"
 #include "group.h"
@@ -9,12 +9,12 @@ namespace Mere
 namespace Auth
 {
 
-class MERE_AUTH_LIB_SPEC UserProfile
+class MERE_AUTH_LIB_SPEC Profile
 {
 public:
-    ~UserProfile();
-    UserProfile();
-    explicit UserProfile(int uid);
+    virtual ~Profile();
+    Profile();
+    explicit Profile(int uid);
 
     std::string name() const;
     void setName(const std::string &name);
@@ -47,6 +47,4 @@ private:
 }
 }
 
-//Q_DECLARE_METATYPE(UserProfile);
-
-#endif // MERE_AUTH_USERPROFILE_H
+#endif // MERE_AUTH_USER_PROFILE_H

@@ -1,5 +1,5 @@
-#ifndef MERE_AUTH_ACCOUNT_H
-#define MERE_AUTH_ACCOUNT_H
+#ifndef MERE_AUTH_PAM_ACCOUNT_H
+#define MERE_AUTH_PAM_ACCOUNT_H
 
 #include "../global.h"
 
@@ -11,6 +11,7 @@ namespace Auth
 class MERE_AUTH_LIB_SPEC Account
 {
 public:
+    virtual ~Account();
     Account();
     Account(const std::string &username, const std::string &password);
 
@@ -28,4 +29,4 @@ private:
 }
 }
 
-#endif // MERE_AUTH_ACCOUNT_H
+#endif // MERE_AUTH_PAM_ACCOUNT_H

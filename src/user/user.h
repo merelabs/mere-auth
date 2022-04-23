@@ -2,7 +2,7 @@
 #define MERE_AUTH_USER_H
 
 #include "../global.h"
-#include "userprofile.h"
+#include "profile.h"
 #include "group.h"
 #include "type.h"
 
@@ -14,7 +14,7 @@ namespace Auth
 class MERE_AUTH_LIB_SPEC User
 {
 public:
-    ~User();
+    virtual ~User();
     explicit User();
 
     User(const User &) = default;
@@ -35,8 +35,8 @@ public:
 
     std::string klass() const;
 
-    UserProfile profile() const;
-    void setProfile(UserProfile profile);
+    Profile profile() const;
+    void setProfile(Profile profile);
 
     enum Type {
         SuperUser  = 1 << 0,
@@ -62,12 +62,10 @@ private:
 
     std::string m_klass;
 
-    UserProfile m_profile;
+    Profile m_profile;
 };
 
 }
 }
-
-Q_DECLARE_METATYPE(Mere::Auth::User);
 
 #endif // MERE_AUTH_USER_H

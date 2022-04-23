@@ -1,5 +1,10 @@
 #include "applicant.h"
 
+Mere::Auth::Applicant::~Applicant()
+{
+
+}
+
 Mere::Auth::Applicant::Applicant(const std::string &username, const std::string &password)
     : m_accout(username, password)
 {

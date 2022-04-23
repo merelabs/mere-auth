@@ -1,6 +1,6 @@
 #include "pam.h"
 
-#include <iostream>
+#include <string.h>
 
 Mere::Auth::PAM::~PAM()
 {

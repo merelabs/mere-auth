@@ -1,5 +1,10 @@
 #include "group.h"
 
+Mere::Auth::Group::~Group()
+{
+
+}
+
 Mere::Auth::Group::Group()
 {
 
