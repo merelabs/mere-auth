@@ -6,6 +6,8 @@
 #include "group.h"
 #include "type.h"
 
+#include <vector>
+
 namespace Mere
 {
 namespace Auth

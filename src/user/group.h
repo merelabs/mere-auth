@@ -3,7 +3,8 @@
 
 #include "../global.h"
 
-#include <QString>
+#include <vector>
+
 
 namespace Mere
 {
