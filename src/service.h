@@ -21,7 +21,7 @@ class MERE_AUTH_LIB_SPEC Service : public QObject
 {
     Q_OBJECT
 public:
-    ~Service();
+    virtual ~Service();
     explicit Service(const std::string &service = "mere", QObject *parent = nullptr);
     bool login(const std::string &username, const std::string &password) const;
     bool logout() const;
